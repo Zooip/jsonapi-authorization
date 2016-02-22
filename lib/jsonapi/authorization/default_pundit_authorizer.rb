@@ -107,7 +107,7 @@ module JSONAPI
       # * +related_records+ - An array of records to be associated to the new
       #   record. This will contain the records specified in the
       #   "relationships" key in the request
-      def create_resource(source_class, related_records)
+      def create_resource(source_class, related_records, data)
         ::Pundit.authorize(user, source_class, 'create?')
 
         related_records.each do |record|

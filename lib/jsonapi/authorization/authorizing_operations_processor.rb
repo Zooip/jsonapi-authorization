@@ -86,8 +86,9 @@ module JSONAPI
 
       def authorize_create_resource
         source_class = @operation.resource_klass._model_class
+        data = @operation.data
 
-        authorizer.create_resource(source_class, related_models)
+        authorizer.create_resource(source_class, related_models, data)
       end
 
       def authorize_remove_resource
